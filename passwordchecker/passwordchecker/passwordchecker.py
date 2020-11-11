@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# passwordchecker.py
+
 """Secure Password Checker.
 
 Check to see if your passwords have been exposed in a data breach.
