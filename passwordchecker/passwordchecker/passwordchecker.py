@@ -12,7 +12,6 @@ Example:
 
 import hashlib
 import sys
-
 import requests
 
 
@@ -20,18 +19,22 @@ def request_api_data(query_char):
     """Request API data. Return status code if request unsuccessful."""
     url = 'https://api.pwnedpasswords.com/range/' + query_char
     res = requests.get(url, timeout=1)
+
     if res.status_code != 200:
         raise RuntimeError(
             f'Error Fetching: {res.status_code}, check the API and try again.')
+
     return res
 
 
 def get_password_leaks_count(hashes, hash_to_check):
     """Return the password leaks count from API response."""
     hashes = (line.split(':') for line in hashes.text.splitlines())
+
     for h, count in hashes:
         if h == hash_to_check:
             return count
+
     return 0
 
 
@@ -47,12 +50,14 @@ def main(args):
     """Print data breach results for each searched password."""
     for password in args:
         count = pwned_api_check(password)
+
         if count:
             print(
                 f'MATCH FOUND! The password \"{password}\" has been leaked '
                 f'{count} times.')
         else:
             print(f'NO MATCH FOUND! The password \"{password}\" is safe.')
+
     return 'Done!'
 
 
