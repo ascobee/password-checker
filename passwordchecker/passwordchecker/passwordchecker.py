@@ -53,8 +53,7 @@ def main(args):
 
         if count:
             print(
-                f'MATCH FOUND! The password \"{password}\" has been leaked '
-                f'{count} times.')
+                f'MATCH FOUND! The password \"{password}\" has been leaked {count} times.')
         else:
             print(f'NO MATCH FOUND! The password \"{password}\" is safe.')
 
