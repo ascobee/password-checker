@@ -16,3 +16,7 @@ Thumbs.db
 # Virtual Env #
 ###############
 env/
+
+# IDE #
+########
+.vscode
